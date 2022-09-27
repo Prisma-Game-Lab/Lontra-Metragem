@@ -21,6 +21,7 @@ public class MenuManager : MonoBehaviour
     public void OpenConfig()
     {
         UIConfig.SetActive(true);
+        UICredits.SetActive(false);
     }
 
     public void CloseConfig()
@@ -31,6 +32,7 @@ public class MenuManager : MonoBehaviour
     public void OpenCredits()
     {
         UICredits.SetActive(true);
+        UIConfig.SetActive(false);
     }
     public void CloseCredits()
     {
