@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 41987798}
   - component: {fileID: 41987797}
   - component: {fileID: 41987796}
-  - component: {fileID: 41987799}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Danger
@@ -225,19 +224,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &41987799
+--- !u!1 &471826777 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8733883354537096284, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
+  m_PrefabInstance: {fileID: 8733883354681455597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &471826778
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 41987795}
+  m_GameObject: {fileID: 471826777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92ed3821d2c31ad48aa697d011afee0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b703c905e5525b48856848b9ddfda98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 1
+  count: 0
 --- !u!1 &534758725
 GameObject:
   m_ObjectHideFlags: 0
