@@ -6,6 +6,8 @@ public class PlayerSlingshotMovement : MonoBehaviour
 {
     [SerializeField]
     private float impulseForce = 1.0f;
+    [SerializeField]
+    private float touchRadius = 0.3f;
     private bool onSlingshot = false;
     private Rigidbody2D rb;
     void Start()
@@ -13,37 +15,38 @@ public class PlayerSlingshotMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if(Input.touchCount > 0)
+        if(Input.GetMouseButtonDown(0)){
+            if (CheckTouch(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+                onSlingshot = true;
+        }
+
+        if (Input.GetMouseButton(0))
         {
-            var touch = Input.GetTouch(0);
-            switch (touch.phase)
+            if (onSlingshot)
+                Debug.DrawLine(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), Color.red);
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (onSlingshot)
             {
-                case TouchPhase.Began:
-                    if (CheckTouch(Camera.main.ScreenToWorldPoint(touch.position)))
-                        onSlingshot = true;
-                    break;
-                case TouchPhase.Moved:
-                    if (onSlingshot)
-                        Debug.DrawLine(transform.position, Camera.main.ScreenToWorldPoint(touch.position));
-                    break;
-                case TouchPhase.Ended:
-                    onSlingshot = false;
-                    Vector3 direction = transform.position - Camera.main.ScreenToWorldPoint(touch.position);
-                    rb.AddForce(new Vector2(direction.x, direction.y) * impulseForce);
-                    break;
-            }
+                onSlingshot = false;
+                rb.velocity = Vector3.zero;
+                var diff = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3 direction = new Vector3(diff.x, diff.y, 0f);
+                rb.AddForce(direction.normalized * impulseForce);
+            }      
         }
     }
 
-
     private bool CheckTouch(Vector3 initialPosition)
     {
-        if (Mathf.Abs(initialPosition.x - transform.position.x) > 0.3f)
+        if (Mathf.Pow(initialPosition.x - transform.position.x, 2) + Mathf.Pow(initialPosition.y - transform.position.y, 2) > Mathf.Pow(touchRadius, 2))
+        {
             return false;
-        if (Mathf.Abs(initialPosition.y - transform.position.y) > 0.3f)
-            return false;
+        }
         return true;
     }
 }
