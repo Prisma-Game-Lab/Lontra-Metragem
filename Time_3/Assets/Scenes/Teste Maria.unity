@@ -224,24 +224,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &471826777 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8733883354537096284, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
-  m_PrefabInstance: {fileID: 8733883354681455597}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &471826778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471826777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b703c905e5525b48856848b9ddfda98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  count: 0
 --- !u!1 &534758725
 GameObject:
   m_ObjectHideFlags: 0
@@ -5300,6 +5282,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[143].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 6986111047817479295, guid: 52f10e7039abe2243bec9bc9f5544ec5, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c2a70e807cfce3e44bb13ba4951ebc2f, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 52f10e7039abe2243bec9bc9f5544ec5, type: 3}
@@ -5315,10 +5301,6 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1775854988}
-    - target: {fileID: 8733883354537096281, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8733883354537096283, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: m_RootOrder
       value: 1
