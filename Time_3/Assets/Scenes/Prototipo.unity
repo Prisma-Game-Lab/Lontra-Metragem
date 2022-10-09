@@ -2306,6 +2306,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[73].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 6986111046239373834, guid: 52f10e7039abe2243bec9bc9f5544ec5, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 6becbaa4da82d9d49891ee5ac566780f, type: 2}
     - target: {fileID: 6986111046239373835, guid: 52f10e7039abe2243bec9bc9f5544ec5, type: 3}
       propertyPath: m_CompositePaths.m_Paths.Array.size
       value: 4
@@ -6098,6 +6102,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[143].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 6986111047817479295, guid: 52f10e7039abe2243bec9bc9f5544ec5, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c2a70e807cfce3e44bb13ba4951ebc2f, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 52f10e7039abe2243bec9bc9f5544ec5, type: 3}
