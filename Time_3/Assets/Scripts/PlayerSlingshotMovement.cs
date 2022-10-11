@@ -8,11 +8,11 @@ public class PlayerSlingshotMovement : MonoBehaviour
     [SerializeField]
     private float impulseForce;
 
-    [Tooltip("Raio da área na qual eh possivel clicar para iniciar o movimento do estilingue.")]
+    [Tooltip("Raio da area na qual eh possivel clicar para iniciar o movimento do estilingue.")]
     [SerializeField]
     private float touchRadius;
 
-    [Tooltip("Fator que determina a influencia do atrito com o chão no movimento do player.")]
+    [Tooltip("Fator que determina a influencia do atrito com o chao no movimento do player.")]
     [SerializeField]
     private float linearDrag;
 
@@ -20,7 +20,7 @@ public class PlayerSlingshotMovement : MonoBehaviour
     [SerializeField]
     private float maxDragRadius;
 
-    [Tooltip("Intensidade mínima de impulso do movimento.")]
+    [Tooltip("Intensidade minima de impulso do movimento.")]
     [SerializeField]
     private float minDragRadius;
 
