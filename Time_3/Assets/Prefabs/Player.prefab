@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 6432670130849719885}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -317,7 +317,7 @@ Transform:
   - {fileID: 8023589587758977625}
   - {fileID: 7509742376189516387}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8733883354537096280
 SpriteRenderer:
@@ -399,7 +399,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impulseForce: 300
-  touchRadius: 0.6
+  touchRadius: 0.7
+  linearDrag: 4
+  maxDragRadius: 2
+  minDragRadius: 0.4
   lineRenderer: {fileID: 5484700244748372957}
   arrowRenderer: {fileID: 6200082943634607954}
 --- !u!70 &8733883354537096286

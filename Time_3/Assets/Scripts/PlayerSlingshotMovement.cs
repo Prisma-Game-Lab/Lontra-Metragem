@@ -4,21 +4,40 @@ using UnityEngine;
 
 public class PlayerSlingshotMovement : MonoBehaviour
 {
+    [Tooltip("Fator que multiplica o impulso para determinar a intensidade da força aplicada ao player a cada movimento.")]
     [SerializeField]
-    private float impulseForce = 1.0f;
+    private float impulseForce;
+
+    [Tooltip("Raio da área na qual eh possivel clicar para iniciar o movimento do estilingue.")]
     [SerializeField]
     private float touchRadius;
-    private bool onSlingshot = false;
-    private Rigidbody2D rb;
+
+    [Tooltip("Fator que determina a influencia do atrito com o chão no movimento do player.")]
+    [SerializeField]
+    private float linearDrag;
+
+    [Tooltip("Intensidade maxima de impulso do movimento.")]
+    [SerializeField]
+    private float maxDragRadius;
+
+    [Tooltip("Intensidade mínima de impulso do movimento.")]
+    [SerializeField]
+    private float minDragRadius;
+
     [SerializeField]
     private LineRenderer lineRenderer;
+
     [SerializeField]
     private LineRenderer arrowRenderer;
+
+    private bool onSlingshot = false;
+    private Rigidbody2D rb;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         lineRenderer.positionCount = 2;
         arrowRenderer.positionCount = 2;
+        rb.drag = linearDrag;
     }
 
     void LateUpdate()
@@ -35,10 +54,8 @@ public class PlayerSlingshotMovement : MonoBehaviour
         {
             if (onSlingshot)
             {
-                //Debug.DrawLine(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), Color.red);
-                var diff = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector3 direction = new Vector3(diff.x, diff.y, 0f);
-                SetDirectionLine(direction);
+                Vector3 direction = SetMovementDirection();
+                DrawLine(direction);
             }
         }
 
@@ -47,14 +64,7 @@ public class PlayerSlingshotMovement : MonoBehaviour
             if (onSlingshot)
             {
                 onSlingshot = false;
-                rb.velocity = Vector3.zero;
-                var diff = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector3 direction = new Vector3(diff.x, diff.y, 0f);
-                rb.AddForce(direction.normalized * impulseForce);
-                Vector3[] positions = { Vector3.zero, Vector3.zero};
-                lineRenderer.SetPositions(positions);
-                arrowRenderer.SetPositions(positions);
-                Time.timeScale = 1f;
+                Move();
             }      
         }
     }
@@ -63,13 +73,55 @@ public class PlayerSlingshotMovement : MonoBehaviour
     {
         if (Vector2.Distance(initialPosition, transform.position) > touchRadius)
             return false;
+
         return true;
     }
-
-    private void SetDirectionLine(Vector3 direction)
+    private Vector3 SetMovementDirection()
     {
-        float intensity = direction.magnitude;//Change to work within a range
-        lineRenderer.SetPositions(new Vector3[] {transform.position - direction.normalized * intensity, transform.position + direction.normalized * intensity});
-        arrowRenderer.SetPositions(new Vector3[]{ transform.position + direction.normalized * intensity, transform.position + (direction.normalized * intensity) * 1.5f});
+        var diff = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 direction = new Vector3(diff.x, diff.y, 0f);
+
+        return direction;
+    }
+
+    private float SetMovementIntensity(Vector3 direction)
+    {
+        float intensity = direction.magnitude;
+        if (direction.magnitude >= maxDragRadius)
+            intensity = maxDragRadius;
+        else if (direction.magnitude < minDragRadius)
+            intensity = 0f;
+        
+        return intensity;
+    }
+
+    private void DrawLine(Vector3 direction)
+    {
+        float intensity = SetMovementIntensity(direction);
+        var v = direction.normalized * intensity;
+        lineRenderer.SetPositions(new Vector3[] {transform.position - v, transform.position + v});
+        arrowRenderer.SetPositions(new Vector3[] {transform.position + v, transform.position + v * 1.5f});
+    }
+
+    private void Move()
+    {
+        rb.velocity = Vector3.zero;
+        Vector3[] positions = { Vector3.zero, Vector3.zero };
+        Vector3 direction = SetMovementDirection();
+
+        float intensity = SetMovementIntensity(direction);
+
+        rb.AddForce(direction.normalized * impulseForce * intensity);
+        
+        lineRenderer.SetPositions(positions);
+        arrowRenderer.SetPositions(positions);
+
+        Time.timeScale = 1f;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, touchRadius);
     }
 }
