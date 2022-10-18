@@ -5,17 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    //playgame, OpenConfig, OpenCredits, CloseCredits
-
     [SerializeField] //faz com que a variável apareça no inspector mesmo sendo privada
     private GameObject UIConfig;
-
+    [SerializeField]
+    private GameObject ChooseMovementUI;
     [SerializeField]
     private GameObject UICredits;
+    [SerializeField]
+    private GameObject fade;
+    private string scene;
 
     public void PlayGame(string scene)
     {
-        SceneManager.LoadScene(scene);
+        ChooseMovementUI.SetActive(true);
+        this.scene = scene;
     }
 
     public void OpenConfig()
@@ -37,5 +40,21 @@ public class MenuManager : MonoBehaviour
     public void CloseCredits()
     {
         UICredits.SetActive(false);
+    }
+
+    public void ChooseMovement(string name)
+    {
+        if(name == "slingshot")
+            PlayerPrefs.SetInt("Movement", ((int)MovementType.slingshot));
+        else if(name == "joystick")
+            PlayerPrefs.SetInt("Movement", ((int)MovementType.joystick));
+        StartCoroutine(ChangeScene());
+    }
+
+    private IEnumerator ChangeScene()
+    {
+        fade.GetComponent<Animator>().Play("FadeIn");
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene(scene);
     }
 }

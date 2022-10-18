@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerCollect : MonoBehaviour
 {
-    [SerializeField]
-    private int count;
+    private PlayerStatus playerStatus;
+
+    private void Start()
+    {
+        playerStatus = GetComponent<PlayerStatus>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Dvd")
         {
-            count++;
+            playerStatus.hasDVD = true;
             Destroy(collision.gameObject);
         }
     }

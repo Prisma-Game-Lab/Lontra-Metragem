@@ -13,6 +13,11 @@ public class PlayerJoystickMovement : MonoBehaviour
     private float horizontal;
     private float vertical;
 
+    private void Start()
+    {
+        if (GetComponent<PlayerStatus>().activeMovement == MovementType.slingshot)
+            joystick.gameObject.SetActive(false);
+    }
     void FixedUpdate()
     {
         horizontal = joystick.Horizontal * speed;

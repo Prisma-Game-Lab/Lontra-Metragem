@@ -34,10 +34,12 @@ public class PlayerSlingshotMovement : MonoBehaviour
     private Rigidbody2D rb;
     void Start()
     {
+        if (GetComponent<PlayerStatus>().activeMovement == MovementType.joystick)
+            this.enabled = false;
         rb = GetComponent<Rigidbody2D>();
         lineRenderer.positionCount = 2;
         arrowRenderer.positionCount = 2;
-        rb.drag = linearDrag;
+        rb.drag = linearDrag;  
     }
 
     void LateUpdate()
