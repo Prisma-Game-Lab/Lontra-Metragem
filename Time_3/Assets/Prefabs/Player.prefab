@@ -318,7 +318,7 @@ Transform:
   - {fileID: 8023589587758977625}
   - {fileID: 7509742376189516387}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8733883354537096280
 SpriteRenderer:
@@ -361,7 +361,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: ca70b777a5e99a9458ce205af59efb2e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1af3d6f3dce6ecd4f8f0843efda310ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -468,7 +468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b703c905e5525b48856848b9ddfda98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 0
 --- !u!114 &3206420080396848185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98f20afb4a55dc74b90b07465abd91f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fade: {fileID: 0}
+  fade: {fileID: 0}
   hasDVD: 1
+  activeMovement: 0
   nextLevel: Prototipo
