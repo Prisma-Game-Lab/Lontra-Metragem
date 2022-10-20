@@ -6,6 +6,8 @@ public class PlayerCollect : MonoBehaviour
 {
     private PlayerStatus playerStatus;
 
+    public GameObject exitIndicator;
+
     private void Start()
     {
         playerStatus = GetComponent<PlayerStatus>();
@@ -15,6 +17,7 @@ public class PlayerCollect : MonoBehaviour
         if (collision.tag == "Dvd")
         {
             playerStatus.hasDVD = true;
+            exitIndicator.SetActive(true);
             Destroy(collision.gameObject);
         }
     }
