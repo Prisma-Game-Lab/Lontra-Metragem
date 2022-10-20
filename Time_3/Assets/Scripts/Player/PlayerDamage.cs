@@ -1,21 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamage : MonoBehaviour
 {
     [Tooltip("Tempo que o player pode permanecer na area de perigo sem ser afetado.")]
     [SerializeField]
     private float timeLimit;
-
-    private Vector3 initialPosition;
-    private Rigidbody2D rb;
     private bool inDanger;
+    private PlayerSlingshotMovement playerSlingshot;
+    private PlayerStatus playerStatus;
 
     void Start()
     {
-        initialPosition = transform.position;
-        rb = GetComponent<Rigidbody2D>();
+        playerSlingshot = GetComponent<PlayerSlingshotMovement>();
+        playerStatus = GetComponent<PlayerStatus>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,8 +39,10 @@ public class PlayerDamage : MonoBehaviour
         yield return new WaitForSeconds(timeLimit);
         if (inDanger)
         {
-            transform.position = initialPosition;
-            rb.velocity = Vector3.zero;
+            playerSlingshot.onSlingshot = false;
+            playerStatus.fade.GetComponent<Animator>().Play("FadeIn");
+            yield return new WaitForSeconds(1.0f);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }   
     }
 }

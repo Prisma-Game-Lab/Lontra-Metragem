@@ -30,7 +30,8 @@ public class PlayerSlingshotMovement : MonoBehaviour
     [SerializeField]
     private LineRenderer arrowRenderer;
 
-    private bool onSlingshot = false;
+    [HideInInspector]
+    public bool onSlingshot = false;
     private Rigidbody2D rb;
     void Start()
     {
@@ -39,7 +40,7 @@ public class PlayerSlingshotMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         lineRenderer.positionCount = 2;
         arrowRenderer.positionCount = 2;
-        rb.drag = linearDrag;  
+        rb.drag = linearDrag;
     }
 
     void LateUpdate()
@@ -67,7 +68,7 @@ public class PlayerSlingshotMovement : MonoBehaviour
             {
                 onSlingshot = false;
                 Move();
-            }      
+            }
         }
     }
 
