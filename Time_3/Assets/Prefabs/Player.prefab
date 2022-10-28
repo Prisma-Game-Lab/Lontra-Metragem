@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impulseForce: 300
-  touchRadius: 0.7
+  touchRadius: 1.75
   linearDrag: 4
   maxDragRadius: 2
   minDragRadius: 0.4
@@ -420,8 +420,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0054749846, y: -0.013248622}
-  m_Size: {x: 0.9238454, y: 0.9238454}
+  m_Offset: {x: -0.045169353, y: -0.0006135702}
+  m_Size: {x: 0.59012127, y: 0.71995854}
   m_Direction: 0
 --- !u!50 &8733883354537096287
 Rigidbody2D:

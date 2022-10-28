@@ -20428,6 +20428,10 @@ PrefabInstance:
       propertyPath: hasDVD
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3206420080396848185, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
+      propertyPath: nextLevel
+      value: Teste4
+      objectReference: {fileID: 0}
     - target: {fileID: 6432670130849719885, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: exitIndicator
       value: 
@@ -20442,11 +20446,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8733883354537096283, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.46
+      value: -1.58
       objectReference: {fileID: 0}
     - target: {fileID: 8733883354537096283, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.99
+      value: 4.63
       objectReference: {fileID: 0}
     - target: {fileID: 8733883354537096283, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: m_LocalPosition.z

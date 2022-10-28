@@ -26845,6 +26845,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 510427630431611645, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
+      propertyPath: timeLimit
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 3206420080396848185, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: Fade
       value: 
@@ -26859,12 +26863,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3206420080396848185, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: nextLevel
-      value: Teste4
+      value: Teste3
       objectReference: {fileID: 0}
     - target: {fileID: 6432670130849719885, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: exitIndicator
       value: 
       objectReference: {fileID: 2054568687}
+    - target: {fileID: 8733883354537096281, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8733883354537096281, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: joystick
       value: 

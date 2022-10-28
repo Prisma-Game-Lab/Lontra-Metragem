@@ -426,6 +426,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4231260585755651768, guid: 710cb9fb9c6c2fd4ab3a2396770ad04b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8485963606135889189, guid: 710cb9fb9c6c2fd4ab3a2396770ad04b, type: 3}
       propertyPath: m_Name
       value: DVD
@@ -17510,10 +17514,6 @@ PrefabInstance:
       propertyPath: exitIndicator
       value: 
       objectReference: {fileID: 406654478}
-    - target: {fileID: 8733883354537096281, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
-      propertyPath: speed
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 8733883354537096281, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: joystick
       value: 
