@@ -9981,8 +9981,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2669876560537552022, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
+      propertyPath: linearDrag
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669876560537552022, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: impulseForce
-      value: 600
+      value: 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669876560537552022, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
+      propertyPath: maxDragRadius
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3206420080396848185, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: Fade
