@@ -12,6 +12,8 @@ public class PlayerCollect : MonoBehaviour
     public GameObject dvd;
 
     public bool podeColetar;
+    public bool isTriggered;
+    
 
     public float tempoEspera = 5f;
 
@@ -24,29 +26,47 @@ public class PlayerCollect : MonoBehaviour
 
     private void Update()
     {
-         if(podeColetar == true)
-            {
-                playerStatus.hasDVD = true;
-                if(SceneManager.GetActiveScene().name == "Teste0")
-                    exitIndicator.SetActive(true);
-                Destroy(dvd);
-                podeColetar = false;
-            }
+        if(podeColetar == true && isTriggered == true)
+        {
+            playerStatus.hasDVD = true;
+            if(SceneManager.GetActiveScene().name == "Teste0")
+                exitIndicator.SetActive(true);
+            Destroy(dvd);
+            podeColetar = false;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Dvd" )
-        {
+        {  
             dvd = collision.gameObject;
+            isTriggered = true;
             StartCoroutine(Esperar(tempoEspera));
-           
+        }  
+
+    }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "Dvd")
+        {
+            isTriggered = false;
+            podeColetar = false;
         }
     }
 
     IEnumerator Esperar(float tempoEspera)
     {
         yield return new WaitForSeconds (tempoEspera);
-        podeColetar = true;
+        if(isTriggered == false)
+        {
+            podeColetar = false;
+        }
+        else
+        {
+            podeColetar = true;
+        }
     }
 
 }
