@@ -987,38 +987,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2669876560537552022, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
-      propertyPath: linearDrag
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2669876560537552022, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
-      propertyPath: impulseForce
-      value: 355
-      objectReference: {fileID: 0}
-    - target: {fileID: 2669876560537552022, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
-      propertyPath: maxDragRadius
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3206420080396848185, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
-      propertyPath: Fade
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3206420080396848185, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
-      propertyPath: fade
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3206420080396848185, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
-      propertyPath: hasDVD
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6432670130849719885, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
-      propertyPath: exitIndicator
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733883354537096281, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
-      propertyPath: joystick
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8733883354537096283, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1065,10 +1033,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8733883354537096284, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8733883354537096284, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []

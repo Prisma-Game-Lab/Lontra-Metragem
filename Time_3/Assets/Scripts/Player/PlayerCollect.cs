@@ -29,8 +29,7 @@ public class PlayerCollect : MonoBehaviour
         if(podeColetar == true && isTriggered == true)
         {
             playerStatus.hasDVD = true;
-            if(SceneManager.GetActiveScene().name == "Teste0")
-                exitIndicator.SetActive(true);
+            exitIndicator.SetActive(true);
             Destroy(dvd);
             podeColetar = false;
         }

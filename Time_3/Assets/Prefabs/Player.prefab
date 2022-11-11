@@ -400,10 +400,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c55e4e776d82574c8088ac7d5c3c7fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impulseForce: 300
+  impulseForce: 355
   touchRadius: 1.75
-  linearDrag: 4
-  maxDragRadius: 2
+  linearDrag: 2.5
+  maxDragRadius: 2.5
   minDragRadius: 0.4
   lineRenderer: {fileID: 5484700244748372957}
   arrowRenderer: {fileID: 6200082943634607954}
@@ -421,7 +421,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.045169353, y: -0.0006135702}
+  m_Offset: {x: 0, y: -0.025}
   m_Size: {x: 0.59012127, y: 0.71995854}
   m_Direction: 0
 --- !u!50 &8733883354537096287
@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226c40f9b80be2f4386298e5585b5685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 0.5
+  timeLimit: 0.2
 --- !u!114 &6432670130849719885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,7 +474,7 @@ MonoBehaviour:
   dvd: {fileID: 0}
   podeColetar: 0
   isTriggered: 0
-  tempoEspera: 5
+  tempoEspera: 0.1
 --- !u!114 &3206420080396848185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,7 +488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fade: {fileID: 0}
-  hasDVD: 1
+  hasDVD: 0
   activeMovement: 0
   nextLevel: Prototipo
 --- !u!114 &4426232406686647076
