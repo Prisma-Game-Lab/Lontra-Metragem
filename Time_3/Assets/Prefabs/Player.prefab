@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 510427630431611645}
   - component: {fileID: 6432670130849719885}
   - component: {fileID: 3206420080396848185}
+  - component: {fileID: 4426232406686647076}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -490,3 +491,25 @@ MonoBehaviour:
   hasDVD: 1
   activeMovement: 0
   nextLevel: Prototipo
+--- !u!114 &4426232406686647076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8733883354537096284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c4a9874d34c284dbecb9400cc8087f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standingSprites:
+  - {fileID: -792730757, guid: dc92ca12ccd02e74687e1af36246d701, type: 3}
+  - {fileID: 755540207, guid: dc92ca12ccd02e74687e1af36246d701, type: 3}
+  - {fileID: -1387243554, guid: dc92ca12ccd02e74687e1af36246d701, type: 3}
+  - {fileID: 202103891, guid: dc92ca12ccd02e74687e1af36246d701, type: 3}
+  slidingSprites:
+  - {fileID: -322841365, guid: dc92ca12ccd02e74687e1af36246d701, type: 3}
+  - {fileID: 1086094926, guid: dc92ca12ccd02e74687e1af36246d701, type: 3}
+  - {fileID: -1183976651, guid: dc92ca12ccd02e74687e1af36246d701, type: 3}
+  - {fileID: 2117243638, guid: dc92ca12ccd02e74687e1af36246d701, type: 3}

@@ -32,7 +32,11 @@ public class PlayerSlingshotMovement : MonoBehaviour
 
     [HideInInspector]
     public bool onSlingshot = false;
+
     private Rigidbody2D rb;
+    private Vector3 lastDirection;
+    private bool moving;
+    private ColliderController colliderController;
     void Start()
     {
         if (GetComponent<PlayerStatus>().activeMovement == MovementType.joystick)
@@ -41,10 +45,17 @@ public class PlayerSlingshotMovement : MonoBehaviour
         lineRenderer.positionCount = 2;
         arrowRenderer.positionCount = 2;
         rb.drag = linearDrag;
+        lastDirection = Vector3.down;
+        colliderController = GetComponent<ColliderController>();
     }
 
     void LateUpdate()
     {
+        if (!moving)
+        {
+            colliderController.SetStandingPlayer(lastDirection);
+        }
+            
         if(Input.GetMouseButtonDown(0)){
             if (CheckTouch(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
             {
@@ -68,6 +79,8 @@ public class PlayerSlingshotMovement : MonoBehaviour
             {
                 onSlingshot = false;
                 Move();
+                StartCoroutine(WaitMovement());
+                moving = true;
             }
         }
     }
@@ -120,11 +133,20 @@ public class PlayerSlingshotMovement : MonoBehaviour
         arrowRenderer.SetPositions(positions);
 
         Time.timeScale = 1f;
+        colliderController.SetSlidingPlayer(direction);
+        lastDirection = direction;
     }
 
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, touchRadius);
+    }
+
+    private IEnumerator WaitMovement()
+    {
+        moving = true;
+        yield return new WaitForSeconds(0.7f);// fazer um calculo do tempo melhor posteriormente
+        moving = false;
     }
 }
