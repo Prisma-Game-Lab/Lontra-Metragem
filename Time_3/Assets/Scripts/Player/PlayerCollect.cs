@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerCollect : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlayerCollect : MonoBehaviour
     public GameObject exitIndicator;
 
     public GameObject dvd;
+
+    public Slider collectLoad;
 
     public bool podeColetar;
     public bool isTriggered;
@@ -21,6 +24,9 @@ public class PlayerCollect : MonoBehaviour
     {
         playerStatus = GetComponent<PlayerStatus>();
         podeColetar = false;
+        collectLoad.enabled = false;
+        collectLoad.value = 0;
+        collectLoad.maxValue = tempoEspera;
         
     }
 
@@ -33,6 +39,11 @@ public class PlayerCollect : MonoBehaviour
             Destroy(dvd);
             podeColetar = false;
         }
+
+         if(collectLoad.isActiveAndEnabled)
+         {
+            collectLoad.value += 1 * Time.deltaTime;
+         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -40,6 +51,8 @@ public class PlayerCollect : MonoBehaviour
         {  
             dvd = collision.gameObject;
             isTriggered = true;
+            collectLoad.enabled = true;
+            collectLoad.gameObject.SetActive(true);
             StartCoroutine(Esperar(tempoEspera));
         }  
 
@@ -51,6 +64,9 @@ public class PlayerCollect : MonoBehaviour
         if(collision.tag == "Dvd")
         {
             isTriggered = false;
+            collectLoad.enabled = false;
+            collectLoad.gameObject.SetActive(false);
+            collectLoad.value = 0;
             podeColetar = false;
         }
     }
