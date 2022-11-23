@@ -230,9 +230,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distY: 5
   distX: 3
-  patrolType: 0
+  patrolType: 2
+  pauseTime: 1
+  restTime: 0.2
   speed: 10
-  timeRest: 0
 --- !u!1 &906145122
 GameObject:
   m_ObjectHideFlags: 0
@@ -5518,11 +5519,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8987243752402156683, guid: 1e868d6142dc6004d983fabbb285e971, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.19
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 8987243752402156683, guid: 1e868d6142dc6004d983fabbb285e971, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8987243752402156683, guid: 1e868d6142dc6004d983fabbb285e971, type: 3}
       propertyPath: m_LocalPosition.z

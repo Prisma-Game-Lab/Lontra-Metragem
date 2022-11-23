@@ -11,193 +11,89 @@ public enum PatrolType
 
 public class EnemyPatrol : MonoBehaviour
 {
-    private Rigidbody2D rb;
     public int distY;
     public int distX;
     public PatrolType patrolType;
+    [Tooltip("Tempo que o inimigo fica parado na patrulha com descanso")]
+    public float pauseTime;
+    [Tooltip("Tempo entre cada etapa de movimento")]
+    public float restTime;
     public float speed;
-    private Vector2 direction;
-    public float timeRest;
-    private int distXR;
-    private int distYR;
-    private bool moving;
-    // Start is called before the first frame update   
+
+    private float waitTime;
+    private Vector2[] positions;
+    private int movementStep = 0;
+    private bool waiting;
+
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        distXR = distX;
-        distYR = distY;
-        //Move();
+        positions = new Vector2[4];
+        positions[0] = transform.position + Vector3.right * distX;
+        positions[1] = positions[0] + Vector2.up * distY;
+        positions[2] = positions[0];
+        positions[3] = transform.position;
+        waitTime = restTime;
     }
 
 
     void Update()
     {
-        //Move();
-        if (!moving)
-            Move();
-        //rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y);
+        Move();
     }
 
     private void Move()
     {
-
         switch (patrolType)
         {
             case PatrolType.nonStop:
-                //SetDirectionX();
-                // rb.MovePosition(rb.position + direction * distX * speed * Time.fixedDeltaTime);
-                Debug.Log(direction);
-                StartCoroutine(Rest(0.6f));
-
+                MoveWithRest(restTime);
                 break;
 
             case PatrolType.paused:
-                for (int i =  0; i < distX; i++)
-                {
-                    //SetDirectionX();
-                    rb.MovePosition(rb.position + direction * speed * Time.fixedDeltaTime);
-                }
-                for(int i = 0; i < distY; i++)
-                {
-                    //SetDirectionY();
-                    rb.MovePosition(rb.position + Vector2.up * distY * speed * Time.fixedDeltaTime);
-                }
+                //MoveStepByStep(0.2f);
                 break;
-
             case PatrolType.withRest:
-                SetDirectionX();
-                rb.MovePosition(rb.position + direction * distX * speed * Time.fixedDeltaTime);
-                StartCoroutine(StopF(timeRest));
+                if (!waiting)
+                {
+                    MoveWithRest(restTime);
+                }
+                if (movementStep == 4)
+                {
+                    waiting = true;
+                    StartCoroutine(Wait(pauseTime));
+                }
                 break;
         }
-
-    }
-    private void SetDirectionX()
-    {
-        if (distX > 0)
-        {
-            direction = Vector2.right;
-        }
-        else if (distX < 0)
-        {
-            direction = Vector2.left;
-        }
-        else
-        {
-            direction = Vector2.zero;
-        }
+        movementStep %= 4;
     }
 
-
-    private void SetDirectionY()
+    private void MoveWithRest(float rest)
     {
-        if (distY > 0)
+        transform.position = Vector2.MoveTowards(transform.position, positions[movementStep], speed * Time.deltaTime);
+        if (Vector2.Distance(transform.position, positions[movementStep]) < 0.2f)
         {
-            direction = Vector2.up;
+            if (waitTime <= 0)
+            {
+                waitTime = rest;
+                movementStep++;
+            }
+            else
+            {
+                waitTime -= Time.deltaTime;
+            }
         }
-        else if (distY < 0)
-        {
-            direction = Vector2.down;
-        }
-        else
-        {
-            direction = Vector2.zero;
-        }
-    }
-    private IEnumerator Rest(float time)
-    {
-        moving = true;
-        //SetDirectionX();
-        rb.MovePosition(rb.position + Vector2.right * distX * speed * Time.fixedDeltaTime);
-        Debug.Log("Para direita");
-        Debug.Log(direction);
-        Debug.Log(distX);
-        yield return new WaitForSeconds(time); //apenas um intervalo, um retorno falso
-        //SetDirectionY();
-        rb.MovePosition(rb.position + Vector2.up * distY * speed * Time.fixedDeltaTime);
-        Debug.Log("Para cima");
-        Debug.Log(direction);
-        Debug.Log(distY);
-        Debug.Log(time);
-        yield return new WaitForSeconds(time);
-        //SetDirectionY();
-        rb.MovePosition(rb.position + Vector2.up * -distY * speed * Time.fixedDeltaTime);
-        Debug.Log("Para baixo");
-        Debug.Log(direction);
-        Debug.Log(-distY);
-        Debug.Log(time);
-        yield return new WaitForSeconds(time);
-        //SetDirectionX();
-        rb.MovePosition(rb.position + Vector2.right * -distX * speed * Time.fixedDeltaTime);
-        Debug.Log("Para esquerda");
-        Debug.Log(direction);
-        Debug.Log(-distX);
-        Debug.Log(time);
-        yield return new WaitForSeconds(time);
-        //StartCoroutine(Return(0.5f));
-        moving = false;
     }
 
-    private IEnumerator Return(float time)
+    private void MoveStepByStep(float rest)
+    {
+        //falta fazer
+    }
+
+
+    private IEnumerator Wait(float time)
     {
         yield return new WaitForSeconds(time);
-        SetDirectionY();
-        rb.MovePosition(rb.position + direction * -distY * speed * Time.fixedDeltaTime);
-        Debug.Log(direction);
-        yield return new WaitForSeconds(time);
-        SetDirectionX();
-        rb.MovePosition(rb.position + direction * -distX * speed * Time.fixedDeltaTime);
-        Debug.Log(direction);
-        yield return new WaitForSeconds(time);
+        waiting = false;
     }
-    
-    private IEnumerator StopF (float time)
-    {
-         moving = true;
-        //SetDirectionX();
-        for (int i = 0; i < distX; i++)
-        {
-            rb.MovePosition(rb.position + Vector2.right * speed * Time.fixedDeltaTime);
-        }
-            Debug.Log("Para direita");
-            Debug.Log(direction);
-            Debug.Log(distX);
-            
-        yield return new WaitForSeconds(time); //apenas um intervalo, um retorno falso
-                                               //SetDirectionY();
-        for (int i = 0; i < distY; i++)
-        {
-            rb.MovePosition(rb.position + Vector2.up * speed * Time.fixedDeltaTime);
-        }
-        Debug.Log("Para cima");
-        Debug.Log(direction);
-        Debug.Log(distY);
-        Debug.Log(time);
-        yield return new WaitForSeconds(time);
-        //SetDirectionY();
-        for (int i = 0; i < distX; i++)
-        {
-            rb.MovePosition(rb.position + Vector2.down * speed * Time.fixedDeltaTime);
-        }
-        Debug.Log("Para baixo");
-        Debug.Log(direction);
-        Debug.Log(-distY);
-        Debug.Log(time);
-        yield return new WaitForSeconds(time);
-        //SetDirectionX();
-        for (int i = 0; i < distX; i++)
-        {
-            rb.MovePosition(rb.position + Vector2.left * speed * Time.fixedDeltaTime);
-        }
-        Debug.Log("Para esquerda");
-        Debug.Log(direction);
-        Debug.Log(-distX);
-        Debug.Log(time);
-        yield return new WaitForSeconds(time);
-        //StartCoroutine(Return(0.5f));
-        moving = false;
-    }
-    
 }
 
