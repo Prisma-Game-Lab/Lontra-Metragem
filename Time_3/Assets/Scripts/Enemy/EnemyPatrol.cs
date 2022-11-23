@@ -19,6 +19,8 @@ public class EnemyPatrol : MonoBehaviour
     [Tooltip("Tempo entre cada etapa de movimento")]
     public float restTime;
     public float speed;
+    public bool squareMoving;
+    public bool verticalFirst;
 
     private float waitTime;
     private Vector2[] positions;
@@ -28,13 +30,9 @@ public class EnemyPatrol : MonoBehaviour
     void Start()
     {
         positions = new Vector2[4];
-        positions[0] = transform.position + Vector3.right * distX;
-        positions[1] = positions[0] + Vector2.up * distY;
-        positions[2] = positions[0];
-        positions[3] = transform.position;
+        BuildPositionsArray();
         waitTime = restTime;
     }
-
 
     void Update()
     {
@@ -89,11 +87,31 @@ public class EnemyPatrol : MonoBehaviour
         //falta fazer
     }
 
-
     private IEnumerator Wait(float time)
     {
         yield return new WaitForSeconds(time);
         waiting = false;
+    }
+
+    private void BuildPositionsArray()
+    {
+        if (verticalFirst)
+        {
+            positions[0] = transform.position + Vector3.up * distY;
+            positions[1] = positions[0] + Vector2.right * distX;
+            positions[2] = positions[0];
+            if (squareMoving)
+                positions[2] = positions[1] + Vector2.up * -distY;   
+        }
+        else
+        {
+            positions[0] = transform.position + Vector3.right * distX;
+            positions[1] = positions[0] + Vector2.up * distY;
+            positions[2] = positions[0];
+            if (squareMoving)
+                positions[2] = positions[1] + Vector2.right * -distX;
+        }
+        positions[3] = transform.position;
     }
 }
 
