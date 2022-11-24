@@ -251,8 +251,8 @@ MonoBehaviour:
   distY: 0
   distX: 0
   patrolType: 0
-  pauseTime: 5
-  restTime: 0.2
-  speed: 10
+  restTime: 5
+  changeDirectionPause: 0.2
+  speed: 5
   squareMoving: 0
   verticalFirst: 0

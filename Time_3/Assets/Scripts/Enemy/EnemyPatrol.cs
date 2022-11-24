@@ -11,15 +11,19 @@ public enum PatrolType
 
 public class EnemyPatrol : MonoBehaviour
 {
+    [Tooltip("Distancia em tiles percorrida na vertical. Positivo: cima e Negativo: baixo")]
     public int distY;
+    [Tooltip("Distancia em tiles percorrida na horizontal. Positivo: direita e Negativo: esquerda")]
     public int distX;
     public PatrolType patrolType;
     [Tooltip("Tempo que o inimigo fica parado na patrulha com descanso")]
-    public float pauseTime;
-    [Tooltip("Tempo entre cada etapa de movimento")]
     public float restTime;
+    [Tooltip("Tempo entre cada etapa de movimento")]
+    public float changeDirectionPause;
     public float speed;
+    [Tooltip("Se selecionado: movimento em quadrado")]
     public bool squareMoving;
+    [Tooltip("Se selecionado: movimento na vertical eh feito antes da horizontal")]
     public bool verticalFirst;
 
     private float waitTime;
@@ -43,7 +47,7 @@ public class EnemyPatrol : MonoBehaviour
             BuildDistancesArray();
             BuildDirectionsArray();
         }
-        waitTime = restTime;
+        waitTime = changeDirectionPause;
     }
 
     void Update()
@@ -56,21 +60,21 @@ public class EnemyPatrol : MonoBehaviour
         switch (patrolType)
         {
             case PatrolType.nonStop:
-                MoveWithRest(restTime);
+                MoveWithRest(changeDirectionPause);
                 break;
 
             case PatrolType.paused:
-                MoveStepByStep(restTime);
+                MoveStepByStep(changeDirectionPause);
                 break;
             case PatrolType.withRest:
                 if (!waiting)
                 {
-                    MoveWithRest(restTime);
+                    MoveWithRest(changeDirectionPause);
                 }
                 if (movementStep == 4)
                 {
                     waiting = true;
-                    StartCoroutine(Wait(pauseTime));
+                    StartCoroutine(Wait(restTime));
                 }
                 break;
         }
