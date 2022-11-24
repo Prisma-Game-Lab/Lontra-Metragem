@@ -24,13 +24,25 @@ public class EnemyPatrol : MonoBehaviour
 
     private float waitTime;
     private Vector2[] positions;
+    private int[] distances;
+    private Vector2[] directions;
     private int movementStep = 0;
     private bool waiting;
+    private Vector3 startPosition;
+    private int i;
 
     void Start()
     {
+        startPosition = transform.position;
         positions = new Vector2[4];
         BuildPositionsArray();
+        if(patrolType == PatrolType.paused)
+        {
+            distances = new int[4];
+            directions = new Vector2[4];
+            BuildDistancesArray();
+            BuildDirectionsArray();
+        }
         waitTime = restTime;
     }
 
@@ -48,7 +60,7 @@ public class EnemyPatrol : MonoBehaviour
                 break;
 
             case PatrolType.paused:
-                //MoveStepByStep(0.2f);
+                MoveStepByStep(restTime);
                 break;
             case PatrolType.withRest:
                 if (!waiting)
@@ -84,7 +96,26 @@ public class EnemyPatrol : MonoBehaviour
 
     private void MoveStepByStep(float rest)
     {
-        //falta fazer
+        var factor = directions[movementStep] * (distances[movementStep] / Mathf.Abs(distances[movementStep]))*i;
+        transform.position = Vector2.MoveTowards(transform.position, (Vector2)startPosition + factor, speed * Time.deltaTime);
+        if (Vector2.Distance(transform.position, (Vector2)startPosition +  factor) < 0.2f)
+        {
+            if (waitTime <= 0)
+            {
+                waitTime = rest;
+                i++;
+                if(i == Mathf.Abs(distances[movementStep])+1)
+                {
+                    movementStep++;
+                    startPosition = transform.position;
+                    i = 0;
+                }
+            }
+            else
+            {
+                waitTime -= Time.deltaTime;
+            }
+        }
     }
 
     private IEnumerator Wait(float time)
@@ -112,6 +143,64 @@ public class EnemyPatrol : MonoBehaviour
                 positions[2] = positions[1] + Vector2.right * -distX;
         }
         positions[3] = transform.position;
+    }
+
+    private void BuildDistancesArray()
+    {
+        if (verticalFirst)
+        {
+            distances[0] = distY;
+            distances[1] = distX;
+            distances[2] = -distX;
+            distances[3] = -distY;
+            if (squareMoving)
+            {
+                distances[2] = -distY;
+                distances[3] = -distX;
+            }
+                
+        }
+        else
+        {
+            distances[0] = distX;
+            distances[1] = distY;
+            distances[2] = -distY;
+            distances[3] = -distX;
+            if (squareMoving)
+            {
+                distances[2] = -distX;
+                distances[3] = -distY;
+            }     
+        }
+    }
+
+    private void BuildDirectionsArray()
+    {
+        if (verticalFirst)
+        {
+            directions[0] = Vector2.up;
+            directions[1] = Vector2.right;
+            directions[2] = Vector2.right;
+            directions[3] = Vector2.up;
+            if (squareMoving)
+            {
+                directions[2] = Vector2.up;
+                directions[3] = Vector2.right;
+            }
+                
+        }
+        else
+        {
+            directions[0] = Vector2.right;
+            directions[1] = Vector2.up;
+            directions[2] = Vector2.up;
+            directions[3] = Vector2.right;
+            if (squareMoving)
+            {
+                directions[2] = Vector2.right;
+                directions[3] = Vector2.up;
+            }
+        }
     }
 }
 
