@@ -96,7 +96,9 @@ public class EnemyPatrol : MonoBehaviour
 
     private void MoveStepByStep(float rest)
     {
-        var factor = directions[movementStep] * (distances[movementStep] / Mathf.Abs(distances[movementStep]))*i;
+        var factor = Vector2.zero;
+        if(distances[movementStep] != 0)
+            factor = directions[movementStep] * (distances[movementStep] / Mathf.Abs(distances[movementStep]))*i;
         transform.position = Vector2.MoveTowards(transform.position, (Vector2)startPosition + factor, speed * Time.deltaTime);
         if (Vector2.Distance(transform.position, (Vector2)startPosition +  factor) < 0.2f)
         {
