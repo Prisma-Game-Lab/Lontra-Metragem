@@ -457,7 +457,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226c40f9b80be2f4386298e5585b5685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 0.2
+  playerDetectionBar: {fileID: 0}
+  detectionRate: 10
+  maxDetectionValue: 100
 --- !u!114 &6432670130849719885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exitIndicator: {fileID: 0}
   dvd: {fileID: 0}
+  collectLoad: {fileID: 0}
   podeColetar: 0
   isTriggered: 0
   tempoEspera: 0.1
