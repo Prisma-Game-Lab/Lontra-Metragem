@@ -13,6 +13,7 @@ public class PlayerJoystickMovement : MonoBehaviour
     private float horizontal;
     private float vertical;
     private ColliderController colliderController;
+    private Vector3 lastDirection;
 
     private void Start()
     {
@@ -29,8 +30,13 @@ public class PlayerJoystickMovement : MonoBehaviour
         vertical = joystick.Vertical * speed;
         Vector3 direction = new Vector3(horizontal, vertical, 0f);
 
-        player.position = player.position + new Vector3(horizontal, vertical, 0f) * Time.deltaTime;
+        player.position = player.position + direction * Time.deltaTime;
         if(direction != Vector3.zero)
-            colliderController.SetStandingPlayer(new Vector3(horizontal, vertical, 0f));
+        {
+            lastDirection = direction;
+            colliderController.SetSlidingPlayer(direction);
+        }           
+        else
+            colliderController.SetStandingPlayer(lastDirection);
     }
 }
