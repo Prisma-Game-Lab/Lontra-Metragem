@@ -48,17 +48,15 @@ public class ColliderController : MonoBehaviour
         sr.sprite = SelectSprite(direction, slidingSprites);
         if (Mathf.Abs(direction.x) >= Mathf.Abs(direction.y))//movimento horizontal
         {
-            //playerCollider.direction = CapsuleDirection2D.Horizontal;
-            //playerCollider.size = new Vector2(sr.bounds.size.x * 0.7f, sr.bounds.size.y * 0.3f);
-            //playerCollider.offset = new Vector2(-0f, -0.3f);
+            playerCollider.direction = CapsuleDirection2D.Horizontal;
+            playerCollider.size = new Vector2(sr.bounds.size.x * 0.6f, sr.bounds.size.y * 0.5f);
         }
     }
 
     public void SetStandingPlayer(Vector3 direction)
     {
         sr.sprite = SelectSprite(direction, standingSprites);
-        //playerCollider.direction = CapsuleDirection2D.Vertical;
-        //playerCollider.size = new Vector3(sr.bounds.size.x * 0.6f, sr.bounds.size.y * 0.7f, sr.bounds.size.z);
-        //playerCollider.offset = new Vector2(-0f, -0f);
+        playerCollider.direction = CapsuleDirection2D.Vertical;
+        playerCollider.size = new Vector3(sr.bounds.size.x * 0.6f, sr.bounds.size.y * 0.7f, sr.bounds.size.z);
     }
 }
