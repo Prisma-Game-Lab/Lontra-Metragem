@@ -462,6 +462,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 710cb9fb9c6c2fd4ab3a2396770ad04b, type: 3}
+--- !u!1 &806504403 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8485963606135889189, guid: 710cb9fb9c6c2fd4ab3a2396770ad04b, type: 3}
+  m_PrefabInstance: {fileID: 806504402}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &906145122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,6 +1156,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: cae5e52977e3e504ca47c80c0fd37d40, type: 3}
+--- !u!114 &1134630696101665575 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7600912455543262324, guid: cae5e52977e3e504ca47c80c0fd37d40, type: 3}
+  m_PrefabInstance: {fileID: 1134630696101665574}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1134630696101665576 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7626118972623988634, guid: cae5e52977e3e504ca47c80c0fd37d40, type: 3}
+  m_PrefabInstance: {fileID: 1134630696101665574}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6124307468808786107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29885,6 +29912,10 @@ PrefabInstance:
       propertyPath: timeLimit
       value: 0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 510427630431611645, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
+      propertyPath: playerDetectionBar
+      value: 
+      objectReference: {fileID: 1134630696101665576}
     - target: {fileID: 3206420080396848185, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: Fade
       value: 
@@ -29901,6 +29932,14 @@ PrefabInstance:
       propertyPath: nextLevel
       value: Teste3
       objectReference: {fileID: 0}
+    - target: {fileID: 6432670130849719885, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
+      propertyPath: dvd
+      value: 
+      objectReference: {fileID: 806504403}
+    - target: {fileID: 6432670130849719885, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
+      propertyPath: collectLoad
+      value: 
+      objectReference: {fileID: 1134630696101665575}
     - target: {fileID: 6432670130849719885, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: exitIndicator
       value: 
