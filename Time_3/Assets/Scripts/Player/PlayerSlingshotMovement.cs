@@ -37,6 +37,7 @@ public class PlayerSlingshotMovement : MonoBehaviour
     private Vector3 lastDirection;
     private bool moving;
     private ColliderController colliderController;
+    private Animator playerAnim;
     void Start()
     {
         if (GetComponent<PlayerStatus>().activeMovement == MovementType.joystick)
@@ -47,12 +48,16 @@ public class PlayerSlingshotMovement : MonoBehaviour
         rb.drag = linearDrag;
         lastDirection = Vector3.down;
         colliderController = GetComponent<ColliderController>();
+        playerAnim = GetComponent<Animator>();
     }
 
     void LateUpdate()
     {
         if (!moving)
         {
+            playerAnim.SetBool("moving", false);
+            playerAnim.SetFloat("X", lastDirection.x);
+            playerAnim.SetFloat("Y", lastDirection.y);
             colliderController.SetStandingPlayer(lastDirection);
         }
             
@@ -133,6 +138,9 @@ public class PlayerSlingshotMovement : MonoBehaviour
         arrowRenderer.SetPositions(positions);
 
         Time.timeScale = 1f;
+        playerAnim.SetBool("moving", true);
+        playerAnim.SetFloat("X", direction.x);
+        playerAnim.SetFloat("Y", direction.y);
         colliderController.SetSlidingPlayer(direction);
         lastDirection = direction;
     }

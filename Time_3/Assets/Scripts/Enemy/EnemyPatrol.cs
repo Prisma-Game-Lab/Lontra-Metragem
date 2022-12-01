@@ -25,6 +25,7 @@ public class EnemyPatrol : MonoBehaviour
     public bool squareMoving;
     [Tooltip("Se selecionado: movimento na vertical eh feito antes da horizontal")]
     public bool verticalFirst;
+    public List<Sprite> spriteList;
 
     private float waitTime;
     private Vector2[] positions;
@@ -34,25 +35,25 @@ public class EnemyPatrol : MonoBehaviour
     private bool waiting;
     private Vector3 startPosition;
     private int i;
+    private SpriteRenderer enemySprite;
 
     void Start()
     {
         startPosition = transform.position;
         positions = new Vector2[4];
         BuildPositionsArray();
-        if(patrolType == PatrolType.paused)
-        {
-            distances = new int[4];
-            directions = new Vector2[4];
-            BuildDistancesArray();
-            BuildDirectionsArray();
-        }
+        distances = new int[4];
+        directions = new Vector2[4];
+        BuildDistancesArray();
+        BuildDirectionsArray();
         waitTime = changeDirectionPause;
+        enemySprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         Move();
+        
     }
 
     private void Move()
@@ -84,6 +85,7 @@ public class EnemyPatrol : MonoBehaviour
     private void MoveWithRest(float rest)
     {
         transform.position = Vector2.MoveTowards(transform.position, positions[movementStep], speed * Time.deltaTime);
+        enemySprite.sprite = SelectSprite();
         if (Vector2.Distance(transform.position, positions[movementStep]) < 0.2f)
         {
             if (waitTime <= 0)
@@ -104,6 +106,7 @@ public class EnemyPatrol : MonoBehaviour
         if(distances[movementStep] != 0)
             factor = directions[movementStep] * (distances[movementStep] / Mathf.Abs(distances[movementStep]))*i;
         transform.position = Vector2.MoveTowards(transform.position, (Vector2)startPosition + factor, speed * Time.deltaTime);
+        enemySprite.sprite = SelectSprite();
         if (Vector2.Distance(transform.position, (Vector2)startPosition +  factor) < 0.2f)
         {
             if (waitTime <= 0)
@@ -205,6 +208,33 @@ public class EnemyPatrol : MonoBehaviour
             {
                 directions[2] = Vector2.right;
                 directions[3] = Vector2.up;
+            }
+        }
+    }
+
+    private Sprite SelectSprite()
+    {
+        Vector3 direction = directions[movementStep] * distances[movementStep];
+        if (Mathf.Abs(direction.x) >= Mathf.Abs(direction.y))//movimento horizontal
+        {
+            if (direction.x > 0)
+            {
+                return spriteList[0];
+            }
+            else
+            {
+                return spriteList[1];
+            }
+        }
+        else//movimento vertical
+        {
+            if (direction.y > 0)
+            {
+                return spriteList[2];
+            }
+            else
+            {
+                return spriteList[3];
             }
         }
     }
