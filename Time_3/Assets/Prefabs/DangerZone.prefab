@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 9162048867901617886}
   m_Layer: 0
   m_Name: DangerZone
-  m_TagString: Untagged
+  m_TagString: Danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,3 +256,4 @@ MonoBehaviour:
   speed: 5
   squareMoving: 0
   verticalFirst: 0
+  spriteList: []
