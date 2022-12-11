@@ -38,6 +38,7 @@ public class PlayerSlingshotMovement : MonoBehaviour
     private bool moving;
     private ColliderController colliderController;
     private Animator playerAnim;
+    private Vector3 initialPosition;
     void Start()
     {
         if (GetComponent<PlayerStatus>().activeMovement == MovementType.joystick)
@@ -62,11 +63,14 @@ public class PlayerSlingshotMovement : MonoBehaviour
         }
             
         if(Input.GetMouseButtonDown(0)){
-            if (CheckTouch(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+            /*if (CheckTouch(Camera.main.ScreenToWorldPoint(Input.mousePosition)))//movimento so acontece clicando na lontra
             {
-                onSlingshot = true;
-                Time.timeScale = 0.5f;
-            }
+            onSlingshot = true;
+            Time.timeScale = 0.5f;
+            }*/
+            initialPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            onSlingshot = true;
+            Time.timeScale = 0.5f;
         }
 
         if (Input.GetMouseButton(0))
@@ -90,16 +94,17 @@ public class PlayerSlingshotMovement : MonoBehaviour
         }
     }
 
-    private bool CheckTouch(Vector3 initialPosition)
+    /*private bool CheckTouch(Vector3 initialPosition)
     {
         if (Vector2.Distance(initialPosition, transform.position) > touchRadius)
             return false;
 
         return true;
-    }
+    }*/
     private Vector3 SetMovementDirection()
     {
-        var diff = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //var diff = transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition); //movimento so acontece clicando na lontra
+        var diff = initialPosition - Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = new Vector3(diff.x, diff.y, 0f);
 
         return direction;
