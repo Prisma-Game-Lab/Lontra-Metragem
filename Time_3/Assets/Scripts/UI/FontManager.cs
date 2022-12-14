@@ -34,11 +34,19 @@ public class FontManager : MonoBehaviour
 
     public event Action OnFontChange;
 
+    private void Start()
+    {
+        idxFont = PlayerPrefs.GetInt("Font");
+        currentFont = (Font)idxFont;
+        OnFontChange?.Invoke();
+    }
+
     public void ChangeFont()
     {
         idxFont++;
         idxFont %= 3;
         currentFont = (Font)idxFont;
+        PlayerPrefs.SetInt("Font", idxFont);
         OnFontChange?.Invoke();
     }
 }
