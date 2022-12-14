@@ -2762,7 +2762,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579a6dc05ac3d784bb4aee9b590ea55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fonts: []
   currentFont: 0
 --- !u!4 &1201225983
 Transform:
@@ -4586,7 +4585,15 @@ PrefabInstance:
     - target: {fileID: 4169061764915767989, guid: dba9277e0927f23439773cc8436de61a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1201225982}
+      objectReference: {fileID: 1617838190}
+    - target: {fileID: 4169061764915767989, guid: dba9277e0927f23439773cc8436de61a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeFont
+      objectReference: {fileID: 0}
+    - target: {fileID: 4169061764915767989, guid: dba9277e0927f23439773cc8436de61a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5478600071477454276, guid: dba9277e0927f23439773cc8436de61a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4858,7 +4865,15 @@ PrefabInstance:
     - target: {fileID: 5834403625067327915, guid: 027d032a5b2d8354bb2641f9f2845173, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1201225982}
+      objectReference: {fileID: 1617838190}
+    - target: {fileID: 5834403625067327915, guid: 027d032a5b2d8354bb2641f9f2845173, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeFont
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834403625067327915, guid: 027d032a5b2d8354bb2641f9f2845173, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8058794057103309487, guid: 027d032a5b2d8354bb2641f9f2845173, type: 3}
       propertyPath: m_Name
       value: ConfigScreen

@@ -75,4 +75,9 @@ public class PauseMenu : MonoBehaviour
     {
         UIConfig.SetActive(false);
     }
+
+    public void ChangeFont()
+    {
+        FontManager.instance.ChangeFont();
+    }
 }

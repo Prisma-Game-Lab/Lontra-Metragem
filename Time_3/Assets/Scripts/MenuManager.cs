@@ -57,4 +57,8 @@ public class MenuManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene(scene);
     }
+    public void ChangeFont()
+    {
+        FontManager.instance.ChangeFont();
+    }
 }
