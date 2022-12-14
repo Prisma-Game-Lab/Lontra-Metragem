@@ -26,7 +26,6 @@ public class PauseMenu : MonoBehaviour
         StopMovement();
 
     }
-
     public void ResumeGame()
     {
         Time.timeScale = 1.0f;
@@ -54,7 +53,7 @@ public class PauseMenu : MonoBehaviour
         StopMovement();   
     }
 
-    public void StopMovement()
+    private void StopMovement()
     {
         if (controlOpt == 0)
             player.GetComponent<PlayerSlingshotMovement>().enabled = false;
@@ -64,7 +63,7 @@ public class PauseMenu : MonoBehaviour
             joystick.SetActive(false);
         }        
     }
-    public void EnableMovement()
+    private void EnableMovement()
     {
         if (controlOpt == 0)
             player.GetComponent<PlayerSlingshotMovement>().enabled = true;
