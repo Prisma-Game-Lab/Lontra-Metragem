@@ -801,7 +801,7 @@ PrefabInstance:
     - target: {fileID: 7883960605082536151, guid: 710cb9fb9c6c2fd4ab3a2396770ad04b, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 570065663, guid: 65b53b92daf285d43b4582ba08f7cfd6, type: 3}
+      objectReference: {fileID: 1634374976, guid: 65b53b92daf285d43b4582ba08f7cfd6, type: 3}
     - target: {fileID: 8485963606135889189, guid: 710cb9fb9c6c2fd4ab3a2396770ad04b, type: 3}
       propertyPath: m_Name
       value: DVD
