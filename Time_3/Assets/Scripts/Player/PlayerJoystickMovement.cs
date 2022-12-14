@@ -24,7 +24,7 @@ public class PlayerJoystickMovement : MonoBehaviour
         }   
         colliderController = GetComponent<ColliderController>();
         playerAnim = GetComponent<Animator>();
-        joystick.transform.position = new Vector3(PlayerPrefs.GetFloat("JoystickX"), PlayerPrefs.GetFloat("JoystickY"), PlayerPrefs.GetFloat("JoystickZ"));
+        //joystick.transform.position = new Vector3(PlayerPrefs.GetFloat("JoystickX"), PlayerPrefs.GetFloat("JoystickY"), PlayerPrefs.GetFloat("JoystickZ"));
     }
 
     private void OnEnable()
