@@ -36,6 +36,7 @@ public class EnemyPatrol : MonoBehaviour
     private Vector3 startPosition;
     private int i;
     private SpriteRenderer enemySprite;
+    private Animator enemyAnim;
 
     void Start()
     {
@@ -48,9 +49,10 @@ public class EnemyPatrol : MonoBehaviour
         BuildDirectionsArray();
         waitTime = changeDirectionPause;
         enemySprite = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        enemyAnim = GetComponent<Animator>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Move();
         
@@ -85,17 +87,19 @@ public class EnemyPatrol : MonoBehaviour
     private void MoveWithRest(float rest)
     {
         transform.position = Vector2.MoveTowards(transform.position, positions[movementStep], speed * Time.deltaTime);
-        enemySprite.sprite = SelectSprite();
+        SelectSprite();
         if (Vector2.Distance(transform.position, positions[movementStep]) < 0.2f)
         {
             if (waitTime <= 0)
             {
                 waitTime = rest;
+                enemyAnim.SetBool("moving", false);
                 movementStep++;
             }
             else
             {
                 waitTime -= Time.deltaTime;
+                enemyAnim.SetBool("moving", false);
             }
         }
     }
@@ -106,7 +110,7 @@ public class EnemyPatrol : MonoBehaviour
         if(distances[movementStep] != 0)
             factor = directions[movementStep] * (distances[movementStep] / Mathf.Abs(distances[movementStep]))*i;
         transform.position = Vector2.MoveTowards(transform.position, (Vector2)startPosition + factor, speed * Time.deltaTime);
-        enemySprite.sprite = SelectSprite();
+        SelectAnimation();
         if (Vector2.Distance(transform.position, (Vector2)startPosition +  factor) < 0.2f)
         {
             if (waitTime <= 0)
@@ -212,10 +216,14 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    private Sprite SelectSprite()
+    private void SelectAnimation()
     {
         Vector3 direction = directions[movementStep] * distances[movementStep];
-        if (Mathf.Abs(direction.x) >= Mathf.Abs(direction.y))//movimento horizontal
+        enemyAnim.SetBool("moving", true);
+        enemyAnim.SetFloat("X", direction.x);
+        enemyAnim.SetFloat("Y", direction.y);
+
+        /*if (Mathf.Abs(direction.x) >= Mathf.Abs(direction.y))//movimento horizontal
         {
             if (direction.x > 0)
             {
@@ -236,7 +244,7 @@ public class EnemyPatrol : MonoBehaviour
             {
                 return spriteList[3];
             }
-        }
+        }*/
     }
 }
 
