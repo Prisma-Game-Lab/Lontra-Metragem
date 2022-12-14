@@ -59,9 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: SOURCESANSPRO-SEMIBOLD SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 2074747444
   material: {fileID: 929916963571332183}
-  materialHashCode: 0
+  materialHashCode: 412949140
   m_Version: 1.1.0
   m_SourceFontFileGUID: faea8d81d2fbdbd45b35b98f5f924e87
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: faea8d81d2fbdbd45b35b98f5f924e87, type: 3}
@@ -5984,9 +5984,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
