@@ -18,13 +18,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Fases/Tutorial/Fase3T.unity
     guid: 52f0342ded64fed48969ee9af59ced49
   - enabled: 1
-    path: Assets/Scenes/Fases/Fase1.unity
+    path: Assets/Scenes/Fases/Modo3/Fase1_3.unity
     guid: bda47ebf7fbc9d34fae8baaff6c24c86
   - enabled: 1
-    path: Assets/Scenes/Fases/Fase2.unity
+    path: Assets/Scenes/Fases/Modo3/Fase2_3.unity
     guid: 3540db81c4ac9f145bac8c575bef50c2
   - enabled: 1
-    path: Assets/Scenes/Fases/Fase3.unity
+    path: Assets/Scenes/Fases/Modo3/Fase3_3.unity
     guid: 3434f5180ae69344f8af25f259ce038d
   - enabled: 1
     path: Assets/Scenes/Tela final.unity
