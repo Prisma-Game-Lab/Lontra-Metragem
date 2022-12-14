@@ -11,7 +11,7 @@ public enum MovementType
 public class PlayerStatus : MonoBehaviour
 {
     public GameObject fade;
-    [HideInInspector]
+    //[HideInInspector]
     public bool hasDVD;
     public MovementType activeMovement;
 
