@@ -41,6 +41,7 @@ public class PlayerSlingshotMovement : MonoBehaviour
     private Vector3 initialPosition;
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         if (GetComponent<PlayerStatus>().activeMovement == MovementType.joystick)
             this.enabled = false;
         rb = GetComponent<Rigidbody2D>();
@@ -51,7 +52,10 @@ public class PlayerSlingshotMovement : MonoBehaviour
         colliderController = GetComponent<ColliderController>();
         playerAnim = GetComponent<Animator>();
     }
-
+    private void OnDisable()
+    {
+        onSlingshot = false;
+    }
     void LateUpdate()
     {
         if (!moving)
@@ -61,8 +65,9 @@ public class PlayerSlingshotMovement : MonoBehaviour
             playerAnim.SetFloat("Y", lastDirection.y);
             colliderController.SetStandingPlayer(lastDirection);
         }
-            
-        if(Input.GetMouseButtonDown(0)){
+
+        if (Input.GetMouseButtonDown(0))
+        {
             /*if (CheckTouch(Camera.main.ScreenToWorldPoint(Input.mousePosition)))//movimento so acontece clicando na lontra
             {
             onSlingshot = true;

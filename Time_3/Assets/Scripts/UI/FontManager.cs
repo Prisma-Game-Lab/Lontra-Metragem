@@ -29,6 +29,7 @@ public class FontManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        DontDestroyOnLoad(gameObject);
     }
 
     public event Action OnFontChange;

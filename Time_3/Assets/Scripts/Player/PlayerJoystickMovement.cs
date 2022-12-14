@@ -20,12 +20,29 @@ public class PlayerJoystickMovement : MonoBehaviour
     {
         if (GetComponent<PlayerStatus>().activeMovement == MovementType.slingshot)
         {
-            joystick.gameObject.SetActive(false);
             this.enabled = false;
         }   
         colliderController = GetComponent<ColliderController>();
         playerAnim = GetComponent<Animator>();
+        joystick.transform.position = new Vector3(PlayerPrefs.GetFloat("JoystickX"), PlayerPrefs.GetFloat("JoystickY"), PlayerPrefs.GetFloat("JoystickZ"));
     }
+
+    private void OnEnable()
+    {
+        if (GetComponent<PlayerStatus>().activeMovement == MovementType.joystick)
+        {
+            joystick.gameObject.SetActive(true);
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (GetComponent<PlayerStatus>().activeMovement == MovementType.slingshot)
+        {
+            joystick.gameObject.SetActive(false);
+        }
+    }
+
     void FixedUpdate()
     {            
         horizontal = joystick.Horizontal * speed;
@@ -48,7 +65,6 @@ public class PlayerJoystickMovement : MonoBehaviour
             playerAnim.SetFloat("Y", dir.y);
             colliderController.SetStandingPlayer(dir);
             playerAnim.SetBool("moving", false);
-        }
-            
+        }      
     }
 }
