@@ -32,6 +32,6 @@ public class CameraController : MonoBehaviour
             Camera.main.orthographicSize = sprite.bounds.size.y * 0.5f * diff;
         }
 
-        Camera.main.transform.position = new Vector3(0.0f, 0.5f, -10.0f);
+        Camera.main.transform.position = new Vector3(-0.2f, 0.5f, -10.0f);
     }
 }
