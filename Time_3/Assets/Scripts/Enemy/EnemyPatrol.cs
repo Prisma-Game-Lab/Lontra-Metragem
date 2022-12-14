@@ -87,7 +87,7 @@ public class EnemyPatrol : MonoBehaviour
     private void MoveWithRest(float rest)
     {
         transform.position = Vector2.MoveTowards(transform.position, positions[movementStep], speed * Time.deltaTime);
-        SelectSprite();
+        SelectAnimation();
         if (Vector2.Distance(transform.position, positions[movementStep]) < 0.2f)
         {
             if (waitTime <= 0)
