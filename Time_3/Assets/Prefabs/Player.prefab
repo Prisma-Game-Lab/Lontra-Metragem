@@ -476,7 +476,7 @@ MonoBehaviour:
   exitIndicator: {fileID: 0}
   dvd: {fileID: 0}
   collectLoad: {fileID: 0}
-  tempoEspera: 0.1
+  tempoEspera: 3
 --- !u!114 &3206420080396848185
 MonoBehaviour:
   m_ObjectHideFlags: 0
