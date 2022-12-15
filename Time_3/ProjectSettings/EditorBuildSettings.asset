@@ -35,4 +35,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tela final.unity
     guid: 16c6cdfb584d8cc4697a79cd1f3cd674
+  - enabled: 1
+    path: Assets/Scenes/Fases/Modo1/Fase1_1.unity
+    guid: f02edd11ee64ce149a277a0ab89b8a64
+  - enabled: 1
+    path: Assets/Scenes/Fases/Modo1/Fase2_1.unity
+    guid: 3faeef7dc51894543b658110ca0d8f84
+  - enabled: 1
+    path: Assets/Scenes/Fases/Modo1/Fase3_1.unity
+    guid: 82bceef8c0f5eb04e96a4a11c53021e4
+  - enabled: 1
+    path: Assets/Scenes/Fases/Modo1/Fase4_1.unity
+    guid: 3ba536042947b10489c77c68538bddef
+  - enabled: 1
+    path: Assets/Scenes/Fases/Modo1/Fase5_1.unity
+    guid: 678cd333a44a5df48992efd4bdd4fb2d
+  - enabled: 1
+    path: Assets/Scenes/Fases/FaseFinal.unity
+    guid: 17e4077a52831b24a85df697dc201897
   m_configObjects: {}
