@@ -376,6 +376,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6674322034775546593, guid: f17497a852b170d47a9f02c40618ed84, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 2.07
+      objectReference: {fileID: 0}
     - target: {fileID: 7527446902196342013, guid: f17497a852b170d47a9f02c40618ed84, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.99
