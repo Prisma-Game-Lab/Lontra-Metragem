@@ -15,6 +15,10 @@ public class MenuManager : MonoBehaviour
     private GameObject fade;
     private string scene;
 
+    private void Start()
+    {
+        AudioManager.instance.Play("Teste");
+    }
     public void PlayGame(string scene)
     {
         ChooseMovementUI.SetActive(true);

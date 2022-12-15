@@ -1,11 +1,18 @@
 using UnityEngine.Audio;
 using UnityEngine;
 
+public enum SoundType
+{
+    sfx,
+    music
+}
+
 [System.Serializable]
 public class Sounds
 {
     public string nome;
     public AudioClip audio;
+    public SoundType type;
 
     [Range(0f,1f)]
     public float volume;
