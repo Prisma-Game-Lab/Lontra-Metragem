@@ -53,4 +53,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fases/FaseFinal.unity
     guid: 17e4077a52831b24a85df697dc201897
+  - enabled: 1
+    path: Assets/Scenes/Fases/Modo2/Fase1_2.unity
+    guid: ad12fc9804377034cac14431736704c4
+  - enabled: 1
+    path: Assets/Scenes/Fases/Modo2/Fase2_2.unity
+    guid: 9dd9d732880ce3c49b411916d4f2476a
+  - enabled: 1
+    path: Assets/Scenes/Fases/Modo2/Fase3_2.unity
+    guid: cc273400c0b48b242a09358768dea9af
+  - enabled: 1
+    path: Assets/Scenes/Fases/Modo2/Fase4_2.unity
+    guid: 27c02e93158994443a74095c95cb5738
+  - enabled: 1
+    path: Assets/Scenes/Fases/Modo2/Fase5_2.unity
+    guid: 77442a4e205bc6d4db6dc67d4d9e0694
   m_configObjects: {}
