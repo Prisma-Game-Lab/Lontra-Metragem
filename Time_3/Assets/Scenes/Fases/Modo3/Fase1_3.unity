@@ -33503,6 +33503,10 @@ PrefabInstance:
       value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 510427630431611645, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
+      propertyPath: detectionRate
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 510427630431611645, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: playerDetectionBar
       value: 
       objectReference: {fileID: 1134630696101665576}
