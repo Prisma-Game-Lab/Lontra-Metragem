@@ -36,6 +36,7 @@ public class PlayerCollect : MonoBehaviour
             dvd = collision.gameObject;
             collectLoad.enabled = true;
             collectLoad.gameObject.SetActive(true);
+            collectLoad.transform.position = Camera.main.WorldToScreenPoint(new Vector3(dvd.transform.position.x, dvd.transform.position.y - 0.5f, 0.0f));
             lastCoroutine = StartCoroutine(Esperar(tempoEspera));
         }  
     }
