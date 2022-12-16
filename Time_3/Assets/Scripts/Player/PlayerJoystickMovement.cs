@@ -73,7 +73,7 @@ public class PlayerJoystickMovement : MonoBehaviour
             colliderController.SetStandingPlayer(dir);
             playerAnim.SetBool("moving", false);
             moving = false;
-            
+            AudioManager.instance.Stop("DeslizaSustain");
         }
     }
 }
