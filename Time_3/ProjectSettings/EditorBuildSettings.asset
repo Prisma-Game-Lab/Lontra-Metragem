@@ -68,4 +68,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fases/Modo2/Fase5_2.unity
     guid: 77442a4e205bc6d4db6dc67d4d9e0694
+  - enabled: 1
+    path: Assets/Scenes/Final Credits.unity
+    guid: 6744c41a516c2b745aee64386f5bc280
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: c8350630f07e2304d96026d40fbcbc6e
   m_configObjects: {}

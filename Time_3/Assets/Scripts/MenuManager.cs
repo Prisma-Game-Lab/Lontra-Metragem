@@ -16,9 +16,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     private GameObject fade;
     private string scene;
-    
     private void Start()
     {
+        if (SceneManager.GetActiveScene().name != "MainMenu")
+            return;
         UIJoystickSettings.GetComponent<JoystickSettings>().SetJoystickInitialPosition();
     }
 
@@ -77,5 +78,36 @@ public class MenuManager : MonoBehaviour
     public void CloseJoystickSettings()
     {
         UIJoystickSettings.SetActive(false);
+    }
+
+    public void NextScene(string scene)
+    {
+        this.scene = scene;
+        StartCoroutine(ChangeScene());
+    }
+
+    public void SelectGameMode(int num)
+    {
+        PlayerPrefs.SetInt("GameMode", num);
+    }
+
+    public void StartGameMode()
+    {
+        int mode = PlayerPrefs.GetInt("GameMode");
+        switch (mode)
+        {
+            case 0:
+                NextScene("Fase1T");
+                break;
+            case 1:
+                NextScene("Fase1_1");
+                break;
+            case 2:
+                NextScene("Fase1_2");
+                break;
+            case 3:
+                NextScene("Fase1_3");
+                break;
+        }  
     }
 }
