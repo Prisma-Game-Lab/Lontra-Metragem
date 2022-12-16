@@ -10,15 +10,7 @@ public class JoystickSettings : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt("Joystick") == 1)
-        {
-            joystick.transform.position = new Vector3(PlayerPrefs.GetFloat("JoystickX"), PlayerPrefs.GetFloat("JoystickY"), PlayerPrefs.GetFloat("JoystickZ"));
-            return;
-        }
-        joystick.transform.position = transforms[0].position;
-        SavePosition();
-        PlayerPrefs.SetInt("Joystick", 1);
-
+        joystick.transform.position = new Vector3(PlayerPrefs.GetFloat("JoystickX"), PlayerPrefs.GetFloat("JoystickY"), PlayerPrefs.GetFloat("JoystickZ"));
     }
     void Update()
     {
@@ -41,6 +33,11 @@ public class JoystickSettings : MonoBehaviour
             choosingPosition = false;
             SavePosition();
         }
+    }
+    public void SetJoystickInitialPosition()
+    {
+        SavePosition(transforms[0].position.x, transforms[0].position.y, transforms[0].position.z);
+        PlayerPrefs.SetInt("Joystick", 1);
     }
     private bool CheckTouch()
     {
@@ -65,5 +62,11 @@ public class JoystickSettings : MonoBehaviour
         PlayerPrefs.SetFloat("JoystickX", joystick.transform.position.x);
         PlayerPrefs.SetFloat("JoystickY", joystick.transform.position.y);
         PlayerPrefs.SetFloat("JoystickZ", joystick.transform.position.z);
+    }
+    private void SavePosition(float x, float y, float z)
+    {
+        PlayerPrefs.SetFloat("JoystickX", x);
+        PlayerPrefs.SetFloat("JoystickY", y);
+        PlayerPrefs.SetFloat("JoystickZ", z);
     }
 }

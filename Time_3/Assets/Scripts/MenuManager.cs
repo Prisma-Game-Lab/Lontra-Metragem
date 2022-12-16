@@ -16,6 +16,11 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     private GameObject fade;
     private string scene;
+    
+    private void Start()
+    {
+        UIJoystickSettings.GetComponent<JoystickSettings>().SetJoystickInitialPosition();
+    }
 
     public void PlayGame(string scene)
     {
