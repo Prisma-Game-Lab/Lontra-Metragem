@@ -26,9 +26,16 @@ public class PlayerSlingshotMovement : MonoBehaviour
 
     [SerializeField]
     private LineRenderer lineRenderer;
-
+    [SerializeField]
+    private LineRenderer lineRenderer2;
+    [SerializeField]
+    private LineRenderer lineRenderer3;
     [SerializeField]
     private LineRenderer arrowRenderer;
+    [SerializeField]
+    private LineRenderer arrowRenderer2;
+    [SerializeField]
+    private LineRenderer arrowRenderer3;
 
     [HideInInspector]
     public bool onSlingshot = false;
@@ -46,7 +53,11 @@ public class PlayerSlingshotMovement : MonoBehaviour
             this.enabled = false;
         rb = GetComponent<Rigidbody2D>();
         lineRenderer.positionCount = 2;
+        lineRenderer2.positionCount = 2;
+        lineRenderer3.positionCount = 2;
         arrowRenderer.positionCount = 2;
+        arrowRenderer2.positionCount = 2;
+        arrowRenderer3.positionCount = 2;
         rb.drag = linearDrag;
         lastDirection = Vector3.down;
         colliderController = GetComponent<ColliderController>();
@@ -131,7 +142,11 @@ public class PlayerSlingshotMovement : MonoBehaviour
         float intensity = SetMovementIntensity(direction);
         var v = direction.normalized * intensity;
         lineRenderer.SetPositions(new Vector3[] {transform.position - v, transform.position + v});
-        arrowRenderer.SetPositions(new Vector3[] {transform.position + v, transform.position + v * 1.5f});
+        lineRenderer2.SetPositions(new Vector3[] { transform.position - v*1.02f, transform.position + v });
+        lineRenderer3.SetPositions(new Vector3[] { transform.position - v * 1.05f, transform.position + v });
+        arrowRenderer.SetPositions(new Vector3[] {transform.position + v, transform.position + v * 1.3f});
+        arrowRenderer2.SetPositions(new Vector3[] { transform.position + v*0.98f, transform.position + v * 1.34f });
+        arrowRenderer3.SetPositions(new Vector3[] { transform.position + v * 0.96f, transform.position + v * 1.37f });
     }
 
     private void Move()
@@ -145,7 +160,11 @@ public class PlayerSlingshotMovement : MonoBehaviour
         rb.AddForce(direction.normalized * impulseForce * intensity);
         
         lineRenderer.SetPositions(positions);
+        lineRenderer2.SetPositions(positions);
+        lineRenderer3.SetPositions(positions);
         arrowRenderer.SetPositions(positions);
+        arrowRenderer2.SetPositions(positions);
+        arrowRenderer3.SetPositions(positions);
 
         Time.timeScale = 1f;
         playerAnim.SetBool("moving", true);
