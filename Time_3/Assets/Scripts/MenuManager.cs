@@ -17,12 +17,9 @@ public class MenuManager : MonoBehaviour
     private GameObject fade;
     private string scene;
 
-    private void Awake()
-    {
-        AudioManager.instance.Stop("InGame");
-    }
     private void Start()
     {
+        AudioManager.instance.Stop("InGame");
         if (SceneManager.GetActiveScene().name != "MainMenu")
             return;
         UIJoystickSettings.GetComponent<JoystickSettings>().SetJoystickInitialPosition();
