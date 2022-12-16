@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     private GameObject UIConfig;
     [SerializeField]
     private GameObject joystick;
+    [SerializeField]
+    private GameObject UIJoystickSettings;
     private int controlOpt;
     private GameObject player;
 
@@ -70,7 +72,6 @@ public class PauseMenu : MonoBehaviour
         else
             player.GetComponent<PlayerJoystickMovement>().enabled = true;
     }
-
     public void CloseConfig()
     {
         UIConfig.SetActive(false);
@@ -79,5 +80,16 @@ public class PauseMenu : MonoBehaviour
     public void ChangeFont()
     {
         FontManager.instance.ChangeFont();
+    }
+    public void OpenJoystickSettings()
+    {
+        UIJoystickSettings.SetActive(true);
+        UIConfig.SetActive(false);
+    }
+
+    public void CloseJoystickSettings()
+    {
+        UIJoystickSettings.SetActive(false);
+        UIConfig.SetActive(true);
     }
 }

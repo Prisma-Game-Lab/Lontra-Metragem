@@ -12,6 +12,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     private GameObject UICredits;
     [SerializeField]
+    private GameObject UIJoystickSettings;
+    [SerializeField]
     private GameObject fade;
     private string scene;
 
@@ -60,5 +62,15 @@ public class MenuManager : MonoBehaviour
     public void ChangeFont()
     {
         FontManager.instance.ChangeFont();
+    }
+
+    public void OpenJoystickSettings()
+    {
+        UIJoystickSettings.SetActive(true);
+    }
+
+    public void CloseJoystickSettings()
+    {
+        UIJoystickSettings.SetActive(false);
     }
 }
