@@ -1025,7 +1025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDetectionBar: {fileID: 0}
-  detectionRate: 10
+  detectionRate: 60
   maxDetectionValue: 100
 --- !u!114 &6432670130849719885
 MonoBehaviour:

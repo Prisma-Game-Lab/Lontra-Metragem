@@ -31078,6 +31078,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 510427630431611645, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
+      propertyPath: detectionRate
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 510427630431611645, guid: 38004a7f5187fda469919ab44c30bd5c, type: 3}
       propertyPath: playerDetectionBar
       value: 
       objectReference: {fileID: 1134630696101665576}
