@@ -655,11 +655,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2751377327510009763, guid: 8c6d315bb1b303f499f591665b09f1ca, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 316.4022
+      value: 407.7
       objectReference: {fileID: 0}
     - target: {fileID: 2751377327510009763, guid: 8c6d315bb1b303f499f591665b09f1ca, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 105.8
       objectReference: {fileID: 0}
     - target: {fileID: 2751377327510009763, guid: 8c6d315bb1b303f499f591665b09f1ca, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1047,6 +1047,7 @@ MonoBehaviour:
   UIConfig: {fileID: 0}
   ChooseMovementUI: {fileID: 0}
   UICredits: {fileID: 0}
+  UIJoystickSettings: {fileID: 0}
   fade: {fileID: 456773622}
 --- !u!4 &1617838191
 Transform:
@@ -1146,7 +1147,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 291, y: -171}
-  m_SizeDelta: {x: 447.436, y: 136.312}
+  m_SizeDelta: {x: 425.68, y: 136.312}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1909723440
 MonoBehaviour:
