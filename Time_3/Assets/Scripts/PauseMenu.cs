@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,7 @@ public class PauseMenu : MonoBehaviour
     private int controlOpt;
     private GameObject player;
 
-
+    public event Action OnMovementChange;
     private void Awake()
     {
         AudioManager.instance.Stop("MainMenu");
@@ -43,6 +44,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1.0f;
         PauseUI.SetActive(false);
+        joystick.transform.position = new Vector3(PlayerPrefs.GetFloat("JoystickX"), PlayerPrefs.GetFloat("JoystickY"), PlayerPrefs.GetFloat("JoystickZ"));
         EnableMovement();
     }
 
@@ -63,7 +65,8 @@ public class PauseMenu : MonoBehaviour
         controlOpt %= 2;
         PlayerPrefs.SetInt("Movement", controlOpt);
         player.GetComponent<PlayerStatus>().activeMovement = (MovementType)controlOpt;
-        StopMovement();   
+        StopMovement();
+        OnMovementChange?.Invoke();
     }
 
     private void StopMovement()
