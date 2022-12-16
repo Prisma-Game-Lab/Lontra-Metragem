@@ -36,8 +36,11 @@ public class JoystickSettings : MonoBehaviour
     }
     public void SetJoystickInitialPosition()
     {
-        SavePosition(transforms[0].position.x, transforms[0].position.y, transforms[0].position.z);
-        PlayerPrefs.SetInt("Joystick", 1);
+        if(PlayerPrefs.GetInt("Joystick") != 1)
+        {
+            SavePosition(transforms[0].position.x, transforms[0].position.y, transforms[0].position.z);
+            PlayerPrefs.SetInt("Joystick", 1);
+        }  
     }
     private bool CheckTouch()
     {
