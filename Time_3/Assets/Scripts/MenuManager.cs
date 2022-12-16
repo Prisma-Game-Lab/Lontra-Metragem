@@ -23,10 +23,9 @@ public class MenuManager : MonoBehaviour
         UIJoystickSettings.GetComponent<JoystickSettings>().SetJoystickInitialPosition();
     }
 
-    public void PlayGame(string scene)
+    public void PlayGame()
     {
         ChooseMovementUI.SetActive(true);
-        this.scene = scene;
     }
 
     public void OpenConfig()
@@ -56,7 +55,6 @@ public class MenuManager : MonoBehaviour
             PlayerPrefs.SetInt("Movement", ((int)MovementType.slingshot));
         else if(name == "joystick")
             PlayerPrefs.SetInt("Movement", ((int)MovementType.joystick));
-        StartCoroutine(ChangeScene());
     }
 
     private IEnumerator ChangeScene()
