@@ -15,6 +15,16 @@ public class PauseMenu : MonoBehaviour
     private int controlOpt;
     private GameObject player;
 
+
+    private void Awake()
+    {
+        AudioManager.instance.Stop("MainMenu");
+        AudioManager.instance.Stop("InGame");
+    }
+    private void Start()
+    {
+        AudioManager.instance.Play("InGame");
+    }
     private void OnEnable()
     {
         controlOpt = PlayerPrefs.GetInt("Movement");

@@ -15,6 +15,7 @@ public class PlayerJoystickMovement : MonoBehaviour
     private ColliderController colliderController;
     private Vector3 lastDirection;
     private Animator playerAnim;
+    private bool moving;
 
     private void Start()
     {
@@ -57,6 +58,12 @@ public class PlayerJoystickMovement : MonoBehaviour
             playerAnim.SetFloat("Y", direction.y);
             lastDirection = direction;
             colliderController.SetSlidingPlayer(direction);
+            if (!moving)
+            {
+                AudioManager.instance.Play("Desliza");
+                AudioManager.instance.Play("DeslizaSustain");
+                moving = true;
+            }
         }
         else
         {
@@ -65,6 +72,8 @@ public class PlayerJoystickMovement : MonoBehaviour
             playerAnim.SetFloat("Y", dir.y);
             colliderController.SetStandingPlayer(dir);
             playerAnim.SetBool("moving", false);
-        }      
+            moving = false;
+            
+        }
     }
 }

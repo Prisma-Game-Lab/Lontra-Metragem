@@ -87,6 +87,7 @@ public class PlayerSlingshotMovement : MonoBehaviour
             initialPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             onSlingshot = true;
             Time.timeScale = 0.5f;
+            AudioManager.instance.Play("Puxa");
         }
 
         if (Input.GetMouseButton(0))
@@ -104,6 +105,8 @@ public class PlayerSlingshotMovement : MonoBehaviour
             {
                 onSlingshot = false;
                 Move();
+                AudioManager.instance.Play("Solta");
+                AudioManager.instance.Play("Desliza");
                 StartCoroutine(WaitMovement());
                 moving = true;
             }

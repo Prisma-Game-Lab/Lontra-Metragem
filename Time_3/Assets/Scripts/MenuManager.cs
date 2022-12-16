@@ -16,11 +16,17 @@ public class MenuManager : MonoBehaviour
     [SerializeField]
     private GameObject fade;
     private string scene;
+
+    private void Awake()
+    {
+        AudioManager.instance.Stop("InGame");
+    }
     private void Start()
     {
         if (SceneManager.GetActiveScene().name != "MainMenu")
             return;
         UIJoystickSettings.GetComponent<JoystickSettings>().SetJoystickInitialPosition();
+        AudioManager.instance.Play("MainMenu");
     }
 
     public void PlayGame()
