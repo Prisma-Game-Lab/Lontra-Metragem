@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerCollect : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class PlayerCollect : MonoBehaviour
     private Coroutine lastCoroutine;
     private PlayerStatus playerStatus;
 
+    public event Action OnDVDCollect;
     private void Start()
     {
         playerStatus = GetComponent<PlayerStatus>();
@@ -37,7 +39,7 @@ public class PlayerCollect : MonoBehaviour
             collectLoad.enabled = true;
             collectLoad.gameObject.SetActive(true);
             collectLoad.transform.position = Camera.main.WorldToScreenPoint(new Vector3(dvd.transform.position.x, dvd.transform.position.y - 0.5f, 0.0f));
-            lastCoroutine = StartCoroutine(Esperar(tempoEspera));
+            CollectDVD();
         }  
     }
 
@@ -58,5 +60,11 @@ public class PlayerCollect : MonoBehaviour
         playerStatus.hasDVD = true;
         exitIndicator.SetActive(true);
         Destroy(dvd);
+        OnDVDCollect?.Invoke();
+    }
+
+    public void CollectDVD()
+    {
+        lastCoroutine = StartCoroutine(Esperar(tempoEspera));
     }
 }
