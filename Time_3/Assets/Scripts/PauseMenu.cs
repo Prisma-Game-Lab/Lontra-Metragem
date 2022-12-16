@@ -19,6 +19,7 @@ public class PauseMenu : MonoBehaviour
     {
         controlOpt = PlayerPrefs.GetInt("Movement");
         player = GameObject.FindGameObjectWithTag("Player");
+        joystick = GameObject.FindGameObjectWithTag("Joystick");
     }
     public void PauseGame()
     {
