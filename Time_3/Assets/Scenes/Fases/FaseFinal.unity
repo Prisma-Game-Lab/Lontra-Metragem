@@ -467,7 +467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 338853143852312879, guid: 4371a92ca7f14d241802f3cf7a6fcbf4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 338853145362301840, guid: 4371a92ca7f14d241802f3cf7a6fcbf4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -493,6 +493,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 338853143852312879, guid: 4371a92ca7f14d241802f3cf7a6fcbf4, type: 3}
   m_PrefabInstance: {fileID: 763834335}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &763834337 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6967816541978142589, guid: 4371a92ca7f14d241802f3cf7a6fcbf4, type: 3}
+  m_PrefabInstance: {fileID: 763834335}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763834336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7f767151d0baf41b20effe7e088a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &852296987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -925,7 +936,7 @@ PrefabInstance:
     - target: {fileID: 5111549057662501661, guid: cae5e52977e3e504ca47c80c0fd37d40, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 852296988}
+      objectReference: {fileID: 763834337}
     - target: {fileID: 5111549057662501661, guid: cae5e52977e3e504ca47c80c0fd37d40, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PauseGame
