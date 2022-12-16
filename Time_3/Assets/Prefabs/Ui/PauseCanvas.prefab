@@ -415,6 +415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SetFontKit
       objectReference: {fileID: 0}
+    - target: {fileID: 5897663950661050873, guid: dba9277e0927f23439773cc8436de61a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: dba9277e0927f23439773cc8436de61a, type: 3}
