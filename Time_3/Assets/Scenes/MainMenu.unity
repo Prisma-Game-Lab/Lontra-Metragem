@@ -6446,7 +6446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6124307469216543298, guid: 9fa8581f11ff5e149af6b28ea437b81e, type: 3}
       propertyPath: sounds.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6124307469216543298, guid: 9fa8581f11ff5e149af6b28ea437b81e, type: 3}
       propertyPath: sounds.Array.data[0].loop
@@ -6505,6 +6505,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6124307469216543298, guid: 9fa8581f11ff5e149af6b28ea437b81e, type: 3}
+      propertyPath: sounds.Array.data[6].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124307469216543298, guid: 9fa8581f11ff5e149af6b28ea437b81e, type: 3}
+      propertyPath: sounds.Array.data[6].nome
+      value: ColetaDVD
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124307469216543298, guid: 9fa8581f11ff5e149af6b28ea437b81e, type: 3}
       propertyPath: sounds.Array.data[0].audio
       value: 
       objectReference: {fileID: 8300000, guid: a386f9a316b679d4aadaf9aa56335e4d, type: 3}
@@ -6550,6 +6558,14 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: ad8fb12019581c7409854842d2462a98, type: 3}
     - target: {fileID: 6124307469216543298, guid: 9fa8581f11ff5e149af6b28ea437b81e, type: 3}
       propertyPath: sounds.Array.data[5].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6124307469216543298, guid: 9fa8581f11ff5e149af6b28ea437b81e, type: 3}
+      propertyPath: sounds.Array.data[6].audio
+      value: 
+      objectReference: {fileID: 8300000, guid: ae48725627e798646ac1bae484a57e9a, type: 3}
+    - target: {fileID: 6124307469216543298, guid: 9fa8581f11ff5e149af6b28ea437b81e, type: 3}
+      propertyPath: sounds.Array.data[6].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6124307469216543299, guid: 9fa8581f11ff5e149af6b28ea437b81e, type: 3}

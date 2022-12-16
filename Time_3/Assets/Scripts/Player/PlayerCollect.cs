@@ -60,6 +60,7 @@ public class PlayerCollect : MonoBehaviour
         playerStatus.hasDVD = true;
         exitIndicator.SetActive(true);
         Destroy(dvd);
+        AudioManager.instance.Play("ColetaDVD");
         OnDVDCollect?.Invoke();
     }
 
