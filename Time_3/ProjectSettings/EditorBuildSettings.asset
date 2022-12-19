@@ -74,4 +74,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro.unity
     guid: c8350630f07e2304d96026d40fbcbc6e
+  - enabled: 1
+    path: Assets/Scenes/Fases/FaseSecreta.unity
+    guid: 0c203614320bf564ca070b7f40280eb7
   m_configObjects: {}
