@@ -953,7 +953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5780522289513116506, guid: f17497a852b170d47a9f02c40618ed84, type: 3}
       propertyPath: patrolType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5780522289513116506, guid: f17497a852b170d47a9f02c40618ed84, type: 3}
       propertyPath: changeDirectionPause
